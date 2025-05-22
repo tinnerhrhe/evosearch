@@ -1,6 +1,6 @@
 .hero-body-background{
     /*padding:9rem 1.5rem;*/
-    height: 900px;
+    height: 800px;
     align-items:center;
     display:grid;
     position: relative;
@@ -9,7 +9,7 @@
 }
 @media screen and (max-width: 768px) {
     .hero-body-background {
-        height: 700px;
+        height: 500px;
     }    
     .hero-body-long-video {
         padding-top: 0!important;
