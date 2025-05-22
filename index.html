@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Scaling Image and Video Generation via
+Test-Time Evolutionary Search">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvoSearch</title>
+  
+    <link rel="stylesheet" href="./static/css/own.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/custom.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Shantell+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" rel="stylesheet"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="./static/css/index.min.css">
+    <script defer src="./static/js/index.min.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>
+
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body-background">
+            <div class="hero-body-background-div" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+            <div style="text-align: center; z-index: 1; margin-top: 60px">
+                <img src="./assets/logo_new.png" width="10%" style="margin-right: 5px;"></img>
+                <!-- <p class="sansfont acmefont shadowtext make-font" style="color: #FFFFFF; display: inline; margin-right: 20pt; font-weight: 600">Make</p> -->
+                <p class="word1 shakefont shadowtext" style="margin-right: -10px; color: #FFC5C5;font-family:fantasy">E</p>
+                <p class="word2 shakefont shadowtext" style="margin-right: -2px; color: #ecd1aa;font-family:fantasy">v</p>
+                <p class="word3 shakefont shadowtext" style="margin-right: -2px; color: #fe8e8e;font-family:fantasy">o</p>
+                <p class="word4 shakefont shadowtext" style="margin-right: -10px; color: #98d4e6;font-family:fantasy">S</p>
+                <p class="word5 shakefont shadowtext" style="margin-right: -10px; color: #9fd8ca;font-family:fantasy">e</p>
+                <p class="word6 shakefont shadowtext" style="margin-right: -10px; color: #a4d6dd;font-family:fantasy">a</p>
+                <p class="word7 shakefont shadowtext" style="margin-right: -10px; color: #dcdda4;font-family:fantasy">r</p>
+                <p class="word1 shakefont shadowtext" style="margin-right: -10px; color: #FFC5C5;font-family:fantasy">c</p>
+                <p class="word2 shakefont shadowtext" style="margin-right: -2px; color: #ecd1aa;font-family:fantasy">h</p>
+               
+    
+                <p class="acmefont shadowtext high-font" style="color: #FFFFFF;">
+                    Scaling Image and Video Generation via Test-Time Evolutionary Search
+                </p>
+                
+            </div>
+            <div class="columns is-centered" style="z-index: 1; margin-top: -80px">
+                <div class="column has-text-centered ">
+                    <div class="publication-authors shadowtext authors-font" style="color: #FFFFFF;font-weight: bold;font-family:DMSerifText;">
+                        
+                        <span class="author-block sansfont"><a href="https://tinnerhrhe.github.io" style="color: inherit !important; text-decoration: none !important;">Haoran He</a><sup>1,2</sup>&nbsp;&nbsp;&nbsp;</span>
+                        <span class="author-block sansfont"><a href="https://scholar.google.com/citations?hl=en&user=xNxlvjEAAAAJ" style="color: inherit !important; text-decoration: none !important;">Jiajun Liang</a><sup>2</sup>&nbsp;&nbsp;&nbsp;</span>
+                        <span class="author-block sansfont"><a href="https://xinntao.github.io/" style="color: inherit !important; text-decoration: none !important;">Xintao Wang</a><sup>2</sup>&nbsp;&nbsp;&nbsp;</span><br>
+                        <span class="author-block sansfont"><a href="https://scholar.google.com/citations?user=P6MraaYAAAAJ&hl=en" style="color: inherit !important; text-decoration: none !important;">Pengfei Wan</a><sup>2</sup>&nbsp;&nbsp;&nbsp;</span> 
+                        <span class="author-block sansfont"><a href="https://openreview.net/profile?id=~Di_ZHANG3" style="color: inherit !important; text-decoration: none !important;">Di Zhang</a><sup>2</sup>&nbsp;&nbsp;&nbsp;</span>
+                        <span class="author-block sansfont"><a href="https://scholar.google.com/citations?hl=en&user=PXO4ygEAAAAJ" style="color: inherit !important; text-decoration: none !important;">Kun Gai</a><sup>2</sup>&nbsp;&nbsp;&nbsp;</span>
+                        <span class="author-block sansfont"><a href="https://ling-pan.github.io/" style="color: inherit !important; text-decoration: none !important;">Ling Pan</a><sup>1</sup>&nbsp;&nbsp;&nbsp;</span>
+                        <br>
+                        <img src="./assets/UST_L3.png" width="40%" style="margin-right: 70px;"></img>
+                        <img src="./assets/Kuaishou_logo.png" width="11%" style="margin-right: 40px;"></img>
+                
+                    </div>
+                    
+                    <div class="publication-authors shadowtext authors-font" style="color: #FFFFFF;font-weight: bold;font-family:DMSerifText; margin-bottom: 4pt;">
+                        <span class="author-block sansfont"><sup>1</sup>Hong Kong University of Science and Technology</span>
+                        <span class="author-block sansfont">&nbsp;&nbsp;</span>
+                        <span class="author-block sansfont"><sup>2</sup>KwaiVGI, Kuaishou Technology</span>
+                    </div>
+
+    ·
+                    <div class="column has-text-centered" style="font-family:DMSerifText">
+                        <div class="publication-links">
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded light-btn btn-font">
+                                <span class="icon">
+                                    <i class="ai ai-arxiv"></i>
+                                </span>
+                                <span class="sansfont">arXiv</span>
+                                </a>
+                            </span>
+    
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded light-btn btn-font">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span class="sansfont">Code</span>
+                                </a>
+                            </span>
+
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded light-btn btn-font">
+                                <span class="icon">
+                                    <i class="fa fa-quote-left"></i>
+                                </span>
+                                <span class="sansfont">Cite</span>
+                                </a>
+                            </span>
+    
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    <br>
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            
+            <div class="content has-text-centered">
+                <figure>
+                    <figcaption>
+                        We propose <strong>Evo</strong>lutionary <strong>Search</strong> (<strong>EvoSearch</strong>), a novel and generalist <strong>test-time scaling</strong> framework applicable to both image and video generation tasks. EvoSearch significantly enhances sample quality through strategic computation allocation during inference, 
+                        <span style="color: rgb(205, 22, 34)">enabling Stable Diffusion 2.1 to exceed GPT4o, and Wan 1.3B to outperform Wan 14B model and Hunyuan 13B model with 10✖️ fewer parameters</span>.
+                    </figcaption><br>
+                    <img src="assets/demo_overview.png" alt="Image 1 description" style="max-width: 90%; height: auto;">
+                    
+                </figure>
+
+
+        </div>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="hero-body-subtitle-light"  style="display: block">
+            <div class="columns is-centered has-text-centered">
+                <div class="container is-max-maxwidth">
+                    <div class="title is-2" style="font-family:'Georgia';color:#151414; font-size: 68px;">
+                        Method
+                    </div>
+                    <figure>
+                        <figcaption>
+                            EvoSearch introduces a novel perspective that <strong>reinterprets the denoising trajectory as an evolutionary path</strong>, 
+                            where both the initial noise \(x_T\) and the intermediate state \(x_t\) can be evolved towards higher-quality generation, 
+                            actively expanding the exploration space beyond the constraints of the pre-trained model's distribution. Different from classic evolutionary algorithms that optimize a population set in a fixed space, 
+                            EvoSearch considers <strong>dynamically moving forward the evolutionary population along the denoising trajectory</strong> starting from \(x_T\) (i.e., Gaussian noises).
+                        </figcaption><br>
+                        <img src="assets/overview_method_new.png" alt="Image 1 description" style="max-width: 90%; height: auto;">
+                        
+                    </figure>
+                </div>
+            </div>
+    
+        </div>
+        <div class="content has-text-justified" style="max-width: 900px; margin: 1px auto; padding: 0 20px;">
+            <p>EvoSearch develops different mutation operations for initial noises and intermediate denoising states:</p>
+        
+            <p><b><span style="color: rgb(6, 109, 219)">Initial noise mutation:</span></b> The following mutation operation is designed to preserve the Gaussian nature of the noise
+                <p>\[x^{\rm child}_T = \sqrt{1-\beta^2}x_{T}^{\rm parent} + \beta \epsilon_T, \quad \epsilon_T \sim \mathcal{N}(0,I),\]</p>
+                <p>
+                    where \(\beta\) is a hyperparameter that controls the strength of added stochasticity to the parents. The first term ensures that the mutated children preserve the high-reward region density,
+                    while the second term encourages exploration.
+                </p>
+                </p>
+            <p><b><span style="color: rgb(6, 109, 219)">Intermediate denoising state mutation:</span></b> To synthesize meaningful variations while preserving the intrinsic structure of the latent state \(x_t\), 
+                we propose an alternative mutation operator inspired by the reverse-time SDE:
+                <p>
+                    \[
+                    x_t^{\rm child}=x^{\rm parent}_t+\sigma_t \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0,I),
+                    \]
+                </p>
+                where \(\sigma_t\) is the diffusion coefficient defined in reverse-time SDE, controlling the level of injected stochasticity.
+            </p>
+            </div>
+    </section>
+    <section class="hero" style="margin: -20px 0; padding: 20px 0;">
+        <div class="hero-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <!-- Gallery Title -->
+            <div class="title is-3 sansfont" style="font-family: 'Acme'; color: #595959; font-size: 68px; margin-bottom: 15px;">
+                Gallery: Image Generation
+            </div>
+            <div class="title is-3 sansfont">
+                Test-Time Scaling for Stable Diffusion 2.1
+            </div>
+            <div class="column" style="flex: 0 0 auto;">
+                <img src="demos/demos_2.png" alt="example image" style="width: 90%; height: auto; display: block;">
+            </div>
+            <div class="title is-3 sansfont">
+                Test-Time Scaling for Flux.1-dev
+            </div>
+            
+            <div class="column" style="flex: 0 0 auto;">
+                <img src="demos/demos_3.png" alt="example image" style="width: 90%; height: auto; display: block;">
+            </div>
+            <div class="column" style="flex: 0 0 auto;">
+                <img src="demos/demos_4.png" alt="example image" style="width: 90%; height: auto; display: block;">
+            </div>
+        </div>
+        
+    </section>
+    <div style="border: #999999 1px solid;"></div>
+    <section class="hero" style="margin: -20px 0; padding: 20px 0;">
+        <div class="hero-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <!-- Gallery Title -->
+            <div class="title is-3 sansfont" style="font-family: 'Acme'; color: #595959; font-size: 68px; margin-bottom: 15px;">
+                Gallery: Video Generation
+            </div>
+            <div class="content has-text-justified">
+                <div class="columns is-multiline"></div>
+                <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                    Prompt: "Several robots coordinate to move a large object across a factory floor. The camera captures the synchronized movements of the robots from a bird's-eye view, showing their precise coordination. The shot then shifts to ground level, focusing on the smooth, synchronized actions of the robots as they work together."
+                </div>
+            </div>
+            <div class="columns is-multiline">
+                <div class="column is-one-third">
+                    <video controls>
+                    <source src="demos/videos/video_bon/0.mp4" type="video/mp4">
+                    
+                    </video>
+                    <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Best of N</p>
+                </div>
+                <div class="column is-one-third">
+                    <video controls>
+                    <source src="demos/videos/video_fk/0.mp4" type="video/mp4">
+                    
+                    </video>
+                    <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Particle Sampling</p>
+                </div>
+                <div class="column is-one-third">
+                    <video controls>
+                    <source src="demos/videos/video_evol/0.mp4" type="video/mp4">
+                    
+                    </video>
+                    <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>EvoSearch (Ours)</b></p>
+                </div>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "A teddy bear at the supermarket. The camera is zooming out."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_bon/16.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Best of N</p>
+            </div>
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_fk/16.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Particle Sampling</p>
+            </div>
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_evol/16.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>EvoSearch (Ours)</b></p>
+            </div>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "Two cars collide at an intersection."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_bon/19.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Best of N</p>
+            </div>
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_fk/19.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Particle Sampling</p>
+            </div>
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_evol/19.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>EvoSearch (Ours)</b></p>
+            </div>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "A spider with the body of a rabbit, scurrying across the ground with immense speed."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_bon/207.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Best of N</p>
+            </div>
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_fk/207.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Particle Sampling</p>
+            </div>
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_evol/207.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>EvoSearch (Ours)</b></p>
+            </div>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "A cat is on the right of a rock, then the cat runs to the left of the rock."
+            </div>
+        </div>
+        
+        <div class="columns is-multiline">
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_bon/361.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Best of N</p>
+            </div> 
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_fk/361.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Particle Sampling</p>
+            </div>
+            <div class="column is-one-third">
+                <video controls>
+                <source src="demos/videos/video_evol/361.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>EvoSearch (Ours)</b></p>
+            </div>
+        </div>
+        </div>
+    </section>
+</section>
+<div style="border: #999999 1px solid;"></div>
+
+<section class="hero" style="margin: -20px 0; padding: 20px 0;">
+    <div class="hero-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <!-- Gallery Title -->
+        <div><strong>
+            Given equivalent inference time, Wan1.3B with EvoSearch can achieve competitive even better performance compared to the 10× larger Wan 14B model.
+            
+            <span style="color: rgb(205, 22, 34)">These findings highlight the significant potential of test-time scaling as a complement to traditional training-time scaling laws for visual generative models, opening new avenues for future research.</span>
+        </strong>
+        </div>
+        <br>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "An owl with the body of a tiger, prowling the night skies with sharp talons."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan14b/301.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
+            </div> 
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan1.3b/100.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "A cheetah doing yoga poses, stretching out its limbs with remarkable flexibility and focus"
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan14b/318.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
+            </div> 
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan1.3b/117.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "A kite and a balloon flying side by side, each drifting gracefully in the wind."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan14b/333.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
+            </div> 
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan1.3b/132.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "A person's hair changes from black to blonde."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan14b/384.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
+            </div> 
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan1.3b/173.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "The plastic water cup turned into a metal water cup."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan14b/425.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
+            </div> 
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan1.3b/214.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "A wooden toy is placed gently on the surface of a small bowl of water."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan14b/972.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
+            </div> 
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan1.3b/485.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
+        </div>
+        <div class="content has-text-justified">
+            <div class="columns is-multiline"></div>
+            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+                Prompt: "A water droplet slides down the edge of a smooth sheet of aluminum, maintaining its spherical form."
+            </div>
+        </div>
+        <div class="columns is-multiline">
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan14b/1018.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
+            </div> 
+            <div class="column is-one-quater">
+                <video controls>
+                <source src="demos/videos/wan1.3b/531.mp4" type="video/mp4">
+                
+                </video>
+                <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
+        </div>
+    </div>
+</section>
+   
+</body>
+
+    
+
+
+
+   
+
+<footer class="footer" style="padding: 2em;">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
