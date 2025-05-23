@@ -185,19 +185,21 @@ Test-Time Evolutionary Search">
             <div class="title is-3 sansfont">
                 Test-Time Scaling for Stable Diffusion 2.1
             </div>
-            <div class="column" style="flex: 0 0 auto;">
-                <img src="demos/demos_2.png" alt="example image" style="width: 80%; height: auto; display: block;">
-            </div>
+    
+            <figure>
+                <img src="demos/demos_2.png" alt="example image" style="width: 80%; height: auto;">
+            </figure>
             <div class="title is-3 sansfont">
                 Test-Time Scaling for Flux.1-dev
             </div>
             
-            <div class="column" style="flex: 0 0 auto;">
-                <img src="demos/demos_3.png" alt="example image" style="width: 80%; height: auto; display: block;">
-            </div>
-            <div class="column" style="flex: 0 0 auto;">
-                <img src="demos/demos_4.png" alt="example image" style="width: 80%; height: auto; display: block;">
-            </div>
+            <figure>
+                <img src="demos/demos_3.png" alt="example image" style="width: 80%; height: auto;">
+            </figure>
+            <figure>
+                <img src="demos/demos_4.png" alt="example image" style="width: 80%; height: auto;">
+            </figure>
+          
         </div>
         </div>
     </div>
@@ -207,7 +209,10 @@ Test-Time Evolutionary Search">
         <div class="container is-max-desktop">
             <div class="hero-body">
             <!-- Gallery Title -->
-            <div class="title is-3 sansfont" style="font-family: 'Acme'; color: #595959; font-size: 68px; margin-bottom: 15px;">
+            <h4 class="subtitle has-text-centered">
+                <div class="content has-text-justified">
+                </div>
+            <div class="title is-2 sansfont" style="font-family: 'Acme'; color: #595959; font-size: 68px; margin-bottom: 15px;">
                 Gallery: Video Generation
             </div>
             <div class="content has-text-justified">
@@ -366,6 +371,7 @@ Test-Time Evolutionary Search">
     <div class="container is-max-desktop">
         <div class="hero-body">
         <!-- Gallery Title -->
+        <h4 class="subtitle has-text-centered">
         <div><strong>
             Given equivalent inference time, Wan1.3B with EvoSearch can achieve competitive even better performance compared to the 10× larger Wan 14B model.
             
@@ -375,43 +381,44 @@ Test-Time Evolutionary Search">
         <br>
         <div class="content has-text-justified">
             <div class="columns is-multiline"></div>
-            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+            <div class="has-text-centered">
                 Prompt: "An owl with the body of a tiger, prowling the night skies with sharp talons."
             </div>
         </div>
         <div class="columns is-multiline">
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan14b/301.mp4" type="video/mp4">
+            <div class="column is-half">
                 
-                </video>
+                    <video playsinline controls src="demos/videos/wan14b/301.mp4" width="60%" preload="metadata"
+                      style="border-radius:10px;"></video>
+                
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
             </div> 
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan1.3b/100.mp4" type="video/mp4">
-                
-                </video>
+            <div class="column is-half">
+              
+                    <video playsinline controls src="demos/videos/wan1.3b/100.mp4" width="60%" preload="metadata"
+                      style="border-radius:10px;"></video>
+                 
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
         </div>
     </div>
         <div class="content has-text-justified">
             <div class="columns is-multiline"></div>
-            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+            <div class="has-text-centered">
                 Prompt: "A cheetah doing yoga poses, stretching out its limbs with remarkable flexibility and focus"
             </div>
         </div>
         <div class="columns is-multiline">
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan14b/318.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan14b/318.mp4">
+               
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
             </div> 
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan1.3b/117.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan1.3b/117.mp4">
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
@@ -419,21 +426,23 @@ Test-Time Evolutionary Search">
     </div>
         <div class="content has-text-justified">
             <div class="columns is-multiline"></div>
-            <div class="note-font" style="margin-top: 10pt; font-size: 16px; color: #666666;">
+            <div class="note-font" >
                 Prompt: "A kite and a balloon flying side by side, each drifting gracefully in the wind."
             </div>
         </div>
         <div class="columns is-multiline">
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan14b/333.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan14b/333.mp4">
+            
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
             </div> 
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan1.3b/132.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan1.3b/132.mp4">
+                
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
@@ -446,16 +455,18 @@ Test-Time Evolutionary Search">
             </div>
         </div>
         <div class="columns is-multiline">
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan14b/384.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan14b/384.mp4">
+              
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
             </div> 
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan1.3b/173.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan1.3b/173.mp4" >
+              
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
@@ -468,16 +479,17 @@ Test-Time Evolutionary Search">
             </div>
         </div>
         <div class="columns is-multiline">
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan14b/425.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan14b/425.mp4">
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
             </div> 
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan1.3b/214.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan1.3b/214.mp4">
+               
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
@@ -490,16 +502,18 @@ Test-Time Evolutionary Search">
             </div>
         </div>
         <div class="columns is-multiline">
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan14b/972.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan14b/972.mp4">
+               
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
             </div> 
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan1.3b/485.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan1.3b/485.mp4">
+              
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
@@ -512,16 +526,17 @@ Test-Time Evolutionary Search">
             </div>
         </div>
         <div class="columns is-multiline">
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan14b/1018.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan14b/1018.mp4">
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;">Wan14b</p>
             </div> 
-            <div class="column is-two-fifths">
-                <video controls>
-                <source src="demos/videos/wan1.3b/531.mp4" type="video/mp4">
+            <div class="column is-half">
+                <video playsinline controls width="60%" preload="metadata"
+                style="border-radius:10px;" src="demos/videos/wan1.3b/531.mp4">
+              
                 
                 </video>
                 <p  class="has-text-centered" style="font-size: 15px; font-family: 'Arial', sans-serif;"><b>Wan1.3B + EvoSearch (Ours)</b></p>
